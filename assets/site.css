@@ -1,0 +1,112 @@
+@font-face {
+	font-family: "Atkinson Hyperlegible Next";
+	src: url("/assets/fonts/AtkinsonHyperlegibleNext.ttf") format("truetype");
+	font-weight: 200 800;
+	font-display: swap;
+}
+
+:root {
+	--bg: #0d0a14;
+	--surface: #16111f;
+	--ink: #f2eef8;
+	--muted: #a79fb8;
+	--accent: #b26bff;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--bg: #f5f2fa;
+		--surface: #ffffff;
+		--ink: #140f1f;
+		--muted: #5e5670;
+		--accent: #7b2fd0;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--ink);
+	font:
+		400 1.0625rem / 1.6 "Atkinson Hyperlegible Next",
+		system-ui,
+		sans-serif;
+}
+
+header,
+main,
+footer {
+	max-width: 760px;
+	margin: 0 auto;
+	padding: 0 16px;
+}
+
+header {
+	padding-top: 24px;
+	padding-bottom: 8px;
+}
+header img {
+	height: 48px;
+	width: auto;
+	display: block;
+}
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 24px;
+	margin-top: 16px;
+}
+
+h1,
+h2,
+h3 {
+	font-weight: 800;
+	line-height: 1.2;
+}
+h2 {
+	margin-top: 2.5rem;
+}
+h3 {
+	margin: 0 0 0.25rem;
+	font-size: 1.05rem;
+}
+
+a {
+	color: var(--accent);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+}
+a:focus-visible {
+	outline: 3px solid var(--accent);
+	outline-offset: 3px;
+	border-radius: 2px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+	gap: 16px;
+}
+
+.grid > div {
+	background: var(--surface);
+	border-radius: 8px;
+	padding: 16px;
+}
+
+.grid p {
+	margin: 0;
+	color: var(--muted);
+}
+
+footer {
+	margin-top: 3rem;
+	padding-top: 16px;
+	padding-bottom: 32px;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
