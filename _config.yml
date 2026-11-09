@@ -1,0 +1,11 @@
+title: Totative
+url: https://totative.github.io
+permalink: /writeups/:title/
+include: [".well-known"]
+exclude: [README.md, lefthook.yml, .gitleaks.toml, Gemfile, Gemfile.lock, vendor]
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: writeup

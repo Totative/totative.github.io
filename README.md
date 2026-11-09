@@ -1,5 +1,5 @@
 Source for <https://totative.github.io>, where Totative publishes research write-ups and advisories.
 
-Plain HTML and CSS. No build step, no JavaScript, no external requests.
+Jekyll, built by GitHub Pages. No JavaScript, no external requests.
 
-To add a write-up, create `writeups/<slug>.html` from an existing page's chrome and list it on `index.html` and `writeups/index.html`.
+To add a write-up, create `_posts/YYYY-MM-DD-slug.md` with a `title` in front matter.
