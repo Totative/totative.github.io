@@ -1,0 +1,15 @@
+---
+layout: default
+title: Write-ups
+description: Totative research write-ups and advisories.
+---
+<h1>Write-ups</h1>
+{% if site.posts.size > 0 %}
+<ul>
+{% for post in site.posts %}
+<li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No write-ups published yet. Advisories appear on GitHub first: <a href="https://github.com/advisories?query=Totative">GitHub advisories</a></p>
+{% endif %}

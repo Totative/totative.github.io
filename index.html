@@ -1,0 +1,28 @@
+---
+layout: default
+---
+<p>Software security: testing, research, review, and the tools we build for it.</p>
+
+<h2>What we do</h2>
+<div class="grid">
+<div><h3>Offensive testing</h3><p>Penetration tests and red-team work against apps, APIs, cloud and infrastructure.</p></div>
+<div><h3>Vulnerability research</h3><p>Bugs in software people depend on, disclosed with its maintainers.</p></div>
+<div><h3>Code review</h3><p>Source and design audits.</p></div>
+<div><h3>Supply chain</h3><p>Build provenance, dependency risk, CI hardening, release signing.</p></div>
+<div><h3>Secure engineering</h3><p>Threat models, and security built into how a team designs and ships.</p></div>
+<div><h3>Tooling</h3><p>What we use on engagements, released here once it's ready.</p></div>
+</div>
+
+<h2>Latest write-ups</h2>
+{% if site.posts.size > 0 %}
+<ul>
+{% for post in site.posts limit: 5 %}
+<li><a href="{{ post.url }}">{{ post.title }}</a> <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%Y-%m-%d" }}</time></li>
+{% endfor %}
+</ul>
+{% else %}
+<p>No write-ups published yet. Advisories appear on GitHub first: <a href="https://github.com/advisories?query=Totative">GitHub advisories</a></p>
+{% endif %}
+
+<h2>Work with us</h2>
+<p>Open an <a href="https://github.com/Totative/.github/issues/new?template=engagement.yml">engagement inquiry</a>. Issues are public, so keep it general; we reply there and move the details somewhere private.</p>
