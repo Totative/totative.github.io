@@ -40,9 +40,11 @@ The first check passes only if GitHub Actions built that exact file from a Totat
 A pass is the short answer. For the long one, ask what the attestation says:
 
 ```sh
-gh attestation verify go-avscan-v0.3.0.tar.gz --owner Totative --format json \
+gh attestation verify go-avscan-v0.3.0.tar.gz --owner Totative \
+  --format json \
   | jq '.[0].verificationResult.signature.certificate
-        | {sourceRepositoryURI, sourceRepositoryRef, sourceRepositoryDigest, buildSignerURI}'
+        | {sourceRepositoryURI, sourceRepositoryRef,
+           sourceRepositoryDigest, buildSignerURI}'
 ```
 
 That names the repository, the tag, the exact commit and the workflow file that did the build; the commit is one you can open and read.
