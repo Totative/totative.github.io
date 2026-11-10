@@ -11,6 +11,8 @@
 	--ink: #f2eef8;
 	--muted: #a79fb8;
 	--accent: #b26bff;
+	--code-string: #e8b96a;
+	--code-var: #ff7ab8;
 }
 
 @media (prefers-color-scheme: light) {
@@ -20,6 +22,8 @@
 		--ink: #140f1f;
 		--muted: #5e5670;
 		--accent: #7b2fd0;
+		--code-string: #8a5a00;
+		--code-var: #b02a6b;
 	}
 }
 
@@ -122,4 +126,35 @@ footer {
 	padding-bottom: 32px;
 	color: var(--muted);
 	font-size: 0.9rem;
+}
+
+pre {
+	background: var(--surface);
+	border-radius: 8px;
+	padding: 12px 16px;
+	overflow-x: auto;
+}
+
+/* Rouge token classes, as Jekyll emits them for fenced code. */
+.highlight .c,
+.highlight .c1,
+.highlight .o {
+	color: var(--muted);
+}
+
+.highlight .nt,
+.highlight .k {
+	color: var(--accent);
+}
+
+.highlight .s,
+.highlight .s1,
+.highlight .s2,
+.highlight .se {
+	color: var(--code-string);
+}
+
+.highlight .nv,
+.highlight .si {
+	color: var(--code-var);
 }
