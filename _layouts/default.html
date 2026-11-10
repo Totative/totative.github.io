@@ -9,7 +9,7 @@
 <title>{% if page.title %}{{ page.title }} - {% endif %}Totative</title>
 <meta name="description" content="{{ page.description | default: 'Software security: testing, research, review, and the tools we build for it.' }}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v={{ site.time | date: '%s' }}">
 </head>
 <body>
 <header>
