@@ -18,3 +18,5 @@ docker run --rm --user "$(id -u):$(id -g)" \
   ghcr.io/actions/jekyll-build-pages:v1.0.13
 python3 -m http.server -d _site 4000
 ```
+
+The tagline and the "What we do" cards are also on the [org profile](https://github.com/Totative/.github/blob/main/profile/README.md). Change both in the same sitting: `scripts/check-copy.py` fails CI when they differ.
