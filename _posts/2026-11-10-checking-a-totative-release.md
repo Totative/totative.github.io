@@ -68,7 +68,7 @@ Before any repository shipped a release, we stood up a throwaway repository from
 
 ## Limits worth knowing
 
-Rekor entries are public and permanent; deleting a repository doesn't remove what the log recorded about it. Attestations also need a public repository on our GitHub plan, so the checks above cover what we publish, not our private engagement work (which never ships as a release anyway.)
+Rekor entries are public and permanent; deleting a repository doesn't remove what the log recorded about it. Attestations also need a public repository on our GitHub plan, so the checks above cover what we publish and nothing kept private.
 
 ## If a check fails
 
