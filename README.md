@@ -1,6 +1,6 @@
 # totative.github.io
 
-Source for <https://totative.github.io>, where Totative publishes research write-ups and advisories.
+Source for <https://totative.dev>, where Totative publishes research write-ups and advisories.
 
 Jekyll, built by GitHub Pages. No JavaScript, no external requests.
 
