@@ -1,5 +1,5 @@
 title: Totative
-url: https://totative.github.io
+url: https://totative.dev
 permalink: /writeups/:title/
 include: [".well-known"]
 exclude: [README.md, scripts, lefthook.yml, .gitleaks.toml, Gemfile, Gemfile.lock, vendor]
