@@ -35,10 +35,28 @@ def check_home_h1(html: str) -> None:
         raise SystemExit("home lede must be an h1")
 
 
+def check_404_noindex(layout: str, not_found: str) -> None:
+    branch = re.search(
+        r"\{%\s*if page\.noindex\s*%\}(.*)\{%\s*else\s*%\}(.*)\{%\s*endif\s*%\}",
+        layout,
+        re.S,
+    )
+    if branch is None:
+        raise SystemExit("default layout needs a page.noindex branch")
+    if 'name="robots" content="noindex"' not in branch.group(1):
+        raise SystemExit("noindex branch missing robots meta")
+    if 'rel="canonical"' in branch.group(1):
+        raise SystemExit("noindex branch must not emit canonical")
+    if re.search(r"^noindex:\s*true\s*$", not_found, re.M) is None:
+        raise SystemExit("404.html needs noindex: true")
+
+
 def main() -> int:
-    check_canonical(Path("_layouts/default.html").read_text())
+    layout = Path("_layouts/default.html").read_text()
+    check_canonical(layout)
     index = Path("index.html").read_text()
     check_home_h1(index)
+    check_404_noindex(layout, Path("404.html").read_text())
     md = urllib.request.urlopen(PROFILE, timeout=30).read().decode()
     want, have = profile_copy(md), site_copy(index)
     assert want[1], "no cards found in the profile README"
