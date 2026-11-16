@@ -17,7 +17,7 @@ def profile_copy(md: str) -> tuple[str, list[tuple[str, str]], list[tuple[str, s
 
 
 def site_copy(html: str) -> tuple[str, list[tuple[str, str]], list[tuple[str, str]]]:
-    tagline = re.search(r"<p>([^<]+)</p>", html).group(1)
+    tagline = re.search(r"<h1>([^<]+)</h1>", html).group(1)
     tools = re.findall(
         r'<li><a href="https://github\.com/Totative/[^"]+">([^<]+)</a>: ([^<]+)</li>',
         html,
@@ -30,10 +30,17 @@ def check_canonical(layout: str) -> None:
         raise SystemExit("pages need a totative.dev canonical")
 
 
+def check_home_h1(html: str) -> None:
+    if re.search(r"^<h1>[^<]+</h1>\s*$", html, re.M) is None:
+        raise SystemExit("home lede must be an h1")
+
+
 def main() -> int:
     check_canonical(Path("_layouts/default.html").read_text())
+    index = Path("index.html").read_text()
+    check_home_h1(index)
     md = urllib.request.urlopen(PROFILE, timeout=30).read().decode()
-    want, have = profile_copy(md), site_copy(Path("index.html").read_text())
+    want, have = profile_copy(md), site_copy(index)
     assert want[1], "no cards found in the profile README"
     if want == have:
         print(
