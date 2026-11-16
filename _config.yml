@@ -2,7 +2,7 @@ title: Totative
 url: https://totative.dev
 permalink: /writeups/:title/
 include: [".well-known"]
-exclude: [README.md, scripts, lefthook.yml, .gitleaks.toml, Gemfile, Gemfile.lock, vendor]
+exclude: [README.md, scripts, lefthook.yml, .gitleaks.toml, Gemfile, Gemfile.lock, vendor, AGENTS.md, CLAUDE.md]
 defaults:
   - scope:
       path: ""
